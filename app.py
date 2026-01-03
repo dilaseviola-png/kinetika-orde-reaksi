@@ -24,9 +24,19 @@ if uploaded_file is not None:
     st.subheader("Data Eksperimen")
     st.dataframe(df)
 
-    # Ambil data
-    t = df.iloc[:, 0].values
-    A = df.iloc[:, 1].values
+    # Validasi jumlah kolom
+if df.shape[1] < 2:
+    st.error("❌ File CSV harus memiliki minimal 2 kolom: waktu dan absorbansi.")
+    st.stop()
+
+# Ambil data
+t = df.iloc[:, 0].values
+A = df.iloc[:, 1].values
+
+# Validasi nilai absorbansi
+if (A <= 0).any():
+    st.error("❌ Nilai absorbansi harus lebih besar dari 0.")
+    st.stop()
 
     hasil = []
 
