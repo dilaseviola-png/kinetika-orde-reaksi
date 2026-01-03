@@ -4,6 +4,48 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
+st.set_page_config(
+    page_title="Kinetika Orde Reaksi",
+    layout="wide"
+)
+
+menu = st.sidebar.radio(
+    "Navigasi",
+    ["🏠 Dashboard", "📈 Analisis Kinetika", "📄 Tentang"]
+)
+
+if menu == "🏠 Dashboard":
+    st.title("📊 Dashboard Kinetika Reaksi")
+
+    st.markdown("""
+    ### 👋 Selamat datang!
+    Aplikasi ini digunakan untuk **menentukan orde reaksi kimia**
+    berdasarkan data **waktu–absorbansi** dari hasil eksperimen.
+
+    #### 🔬 Apa yang bisa dilakukan aplikasi ini?
+    - Menentukan orde reaksi **0, 1, dan 2**
+    - Menghitung **konstanta laju reaksi (k)**
+    - Menampilkan **grafik linearitas**
+    - Menentukan orde reaksi **paling sesuai berdasarkan R²**
+
+    #### 🧪 Contoh penerapan:
+    - Kinetika degradasi zat pangan
+    - Reaksi enzimatik
+    - Studi kestabilan nanomaterial
+    """)
+
+    st.info("📌 Pilih menu **Analisis Kinetika** di sidebar untuk mulai.")
+
+elif menu == "📈 Analisis Kinetika":
+    st.title("📈 Analisis Kinetika Orde Reaksi")
+
+    uploaded_file = st.file_uploader(
+        "Upload file CSV (waktu, absorbansi)",
+        type=["csv"]
+    )
+
+    # ... (kode analisis kamu yang sudah jadi)
+
 st.set_page_config(page_title="Penentuan Orde Reaksi", layout="centered")
 
 st.title("Penentuan Orde Reaksi")
@@ -39,3 +81,18 @@ if uploaded_file is not None:
 
     st.success("✅ Data valid, analisis bisa dilakukan")
 
+elif menu == "📄 Tentang":
+    st.title("📄 Tentang Aplikasi")
+
+    st.markdown("""
+    **Aplikasi Kinetika Orde Reaksi**
+
+    Dibuat menggunakan:
+    - Python
+    - Streamlit
+    - Pandas & NumPy
+
+    Tujuan aplikasi ini adalah membantu analisis kinetika reaksi
+    secara **interaktif dan visual**, khususnya pada bidang
+    **kimia terapan dan pangan**.
+    """)
