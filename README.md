@@ -1,0 +1,1 @@
+# kinetika-orde-reaksi
