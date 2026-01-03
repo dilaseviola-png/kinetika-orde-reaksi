@@ -5,12 +5,6 @@ import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
 
-# Sidebar Navigation
-page = st.sidebar.selectbox(
-    "📄 Go to Page",
-    ("Dashboard", "Upload Data", "Finance Chatbot", "Settings")
-)
-
 st.set_page_config(page_title="Penentuan Orde Reaksi", layout="centered")
 
 st.title("Penentuan Orde Reaksi")
