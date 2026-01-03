@@ -67,7 +67,6 @@ elif menu == "📈 Analisis Kinetika":
     st.subheader("📄 Data Eksperimen")
     st.dataframe(df)
 
-    st.write("Kolom terdeteksi:", list(df.columns))
     st.write("Jumlah kolom:", df.shape[1])
 
     # ======================
