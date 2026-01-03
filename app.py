@@ -19,47 +19,24 @@ uploaded_file = st.file_uploader(
 )
 
 if uploaded_file is not None:
-    df = pd.read_csv(uploaded_file)
+    df = pd.read_csv(uploaded_file, sep=None, engine="python")
 
     st.subheader("Data Input")
     st.dataframe(df)
 
-    # ======================
-    # VALIDASI DATA
-    # ======================
+    st.write("Kolom terdeteksi:", df.columns)
+    st.write("Jumlah kolom:", df.shape[1])
+
     if df.shape[1] < 2:
-        st.error("❌ File CSV harus memiliki minimal 2 kolom: waktu dan absorbansi.")
+        st.error("❌ File CSV tidak terbaca sebagai 2 kolom. Cek delimiter CSV.")
         st.stop()
 
-    # Ambil data
     t = df.iloc[:, 0].values
     A = df.iloc[:, 1].values
 
     if (A <= 0).any():
-        st.error("❌ Nilai absorbansi harus lebih besar dari 0.")
+        st.error("❌ Nilai absorbansi harus > 0")
         st.stop()
 
-    # ======================
-    # ORDE 0
-    # ======================
-    st.subheader("Analisis Kinetika Orde 0")
+    st.success("✅ Data valid, analisis bisa dilakukan")
 
-    coef = np.polyfit(t, A, 1)
-    pred = np.polyval(coef, t)
-
-    k = abs(coef[0])
-    r = np.corrcoef(A, pred)[0, 1]
-    r2 = r ** 2
-
-    st.write(f"**Persamaan:** A = {coef[0]:.4f} t + {coef[1]:.4f}")
-    st.write(f"**Konstanta laju (k):** {k:.5f}")
-    st.write(f"**Koefisien determinasi (R²):** {r2:.3f}")
-
-    fig, ax = plt.subplots()
-    ax.scatter(t, A)
-    ax.plot(t, pred)
-    ax.set_xlabel("Waktu")
-    ax.set_ylabel("Absorbansi")
-    st.pyplot(fig)
-
-    
