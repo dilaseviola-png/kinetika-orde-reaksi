@@ -23,7 +23,7 @@ menu = st.sidebar.radio(
 # HALAMAN DASHBOARD
 # ======================
 if menu == "🏠 Dashboard":
-    st.title("📊 Dashboard Kinetika Reaksi")
+    st.title("📊 Dashboard Kinetika Orde Reaksi")
 
     st.markdown("""
     ### 👋 Selamat datang!
