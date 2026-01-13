@@ -16,7 +16,7 @@ st.set_page_config(
 # ======================
 menu = st.sidebar.radio(
     "Navigasi",
-    ["🏠 Dashboard", "📈 Analisis Kinetika", "📄 Tentang"]
+    ["🏠 Dashboard", "📈 Analisis Kinetika", "📄 Tentang Aplikasi"]
 )
 
 # ======================
