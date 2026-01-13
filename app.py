@@ -178,7 +178,7 @@ elif menu == "📈 Analisis Kinetika":
 # ======================
 # HALAMAN TENTANG
 # ======================
-elif menu == "📄 Tentang":
+elif menu == "📄 Tentang Aplikasi":
     st.title("📄 Tentang Aplikasi")
 
     st.markdown("""
