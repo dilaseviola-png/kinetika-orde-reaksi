@@ -176,9 +176,9 @@ elif menu == "📈 Analisis Kinetika":
     st.write("Nilai R² tertinggi menunjukkan orde reaksi yang paling sesuai.")
 
 # ======================
-# HALAMAN TENTANG
+# HALAMAN TENTANG APLIKASI
 # ======================
-elif menu == "📄 Tentang Aplikasi":
+elif menu == "📄 Tentang":
     st.title("📄 Tentang Aplikasi")
 
     st.markdown("""
