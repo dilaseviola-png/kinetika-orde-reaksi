@@ -199,3 +199,21 @@ elif menu == "📄 Tentang":
     **Bidang aplikasi:**
     Kimia terapan, pangan, dan nanoteknologi.
     """)
+
+    st.subheader("👥 Profil Anggota Kelompok 7")
+
+    anggota = [
+        {"nama": "Dila Seviola", "nim": "2450152"},
+        {"nama": "Hegar Sutania", "nim": "2450164"},
+        {"nama": "Maher Abdul Jabbar", "nim": "2450176"},
+        {"nama": "Naufal Maulana Bakhtiyar", "nim": "2450192"},
+        {"nama": "Zahraeka Ambiya", "nim": "2450207"},
+    ]
+
+    for a in anggota:
+        st.markdown(f"""
+        **{a['nama']}**  
+        NIM: {a['nim']}  
+        DIV – Nanoteknologi Pangan  
+        """)
+        st.markdown("---")
